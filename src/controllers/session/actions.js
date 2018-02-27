@@ -23,6 +23,12 @@ export const signin = (credentials) => {
 export const beginSession = (userData) => {
 	return {
 		type: 'SESSION_LOGIN',
-		data: userData
+		data: Object.assign({}, userData, { isLoggedIn: true })
+	};
+};
+
+export const signout = () => {
+	return {
+		type: 'SESSION_LOGOUT'
 	};
 };

@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { signout } from './../controllers/session/actions.js';
 
-export default class Header extends React.Component {
+
+export class Header extends React.Component {
 	render() {
 		return (
 			<nav className="navbar navbar-dark bg-dark">
@@ -14,13 +17,30 @@ export default class Header extends React.Component {
 							Account
 						</button>
 						<div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-							<a className="dropdown-item" href="#">Action</a>
-							<a className="dropdown-item" href="#">Another action</a>
-							<a className="dropdown-item" href="#">Something else here</a>
+							<button className="dropdown-item" onClick={() => {this.props.onLogoutClick()}}>Logout</button>
 						</div>
 					</div>
 				</div>
 			</nav>
 		);
-	}
+	};
 };
+
+const mapStateToProps = (state) => {
+	return {
+		session: state.session
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onLogoutClick: (credentials) => {
+			dispatch(signout());
+		}
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Header);
