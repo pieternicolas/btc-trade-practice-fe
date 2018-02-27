@@ -1,12 +1,6 @@
 import axios from 'axios';
 
 
-// export const sessionLogin = (credentials) => ({
-// 	type: 'SESSION_LOGIN',
-// 	id: credentials.id,
-// 	password: credentials.password
-// });
-
 export const signin = (credentials) => {
 	console.log(credentials)
 	return (dispatch) => {
