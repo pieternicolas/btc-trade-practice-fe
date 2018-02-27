@@ -1,12 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as sessionActions from './../../controllers/session/actions.js';
+import { signin } from './../../controllers/session/actions.js';
 
-
-const mapStateToProps = (state) => {
-	return state;
-}
 
 export class Login extends React.Component {
 	constructor(props) {
@@ -19,18 +15,41 @@ export class Login extends React.Component {
 		};
 	}
 
+	handleFormInput(e) {
+		this.setState({
+			credentials: Object.assign({}, this.state.credentials, {[e.target.id]: e.target.value})
+		});
+	}
+
 	render() {
 		return (
 			<div>
 				Login
 				<pre>{JSON.stringify(this.props.session)}</pre>
-				<button onClick={() => this.props.signin(this.state.credentials)}>test</button>
+
+				<input type="text" id="id" value={this.state.credentials.id} onChange={(e) => this.handleFormInput(e)}/>
+
+				<button onClick={() => this.props.onLoginClick(this.state.credentials)}>test</button>
 			</div>
 		);
 	}
-}
+};
+
+const mapStateToProps = (state) => {
+	return {
+		session: state.session
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		onLoginClick: (credentials) => {
+			dispatch(signin(credentials));
+		}
+	};
+};
 
 export default connect(
 	mapStateToProps,
-	sessionActions
-)(Login)
+	mapDispatchToProps
+)(Login);
