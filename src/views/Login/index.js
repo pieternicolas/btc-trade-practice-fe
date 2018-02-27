@@ -23,7 +23,7 @@ export class Login extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="container">
 				Login
 				<pre>{JSON.stringify(this.props.session)}</pre>
 

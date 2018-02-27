@@ -13,7 +13,6 @@ const rootReducer = (state, action) => {
 	if (action.type === 'SESSION_LOGOUT') {
 		state = undefined;
 	};
-
 	return appReducer(state, action);
 };
 
