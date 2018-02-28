@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PublicHeader from './components/PublicHeader.js';
 import PublicFooter from './components/PublicFooter.js';
 
-import './index.css';
+import './styles/index.css';
 
 const index = (props) => {
   return (
