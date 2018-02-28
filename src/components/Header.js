@@ -8,7 +8,7 @@ import { signout } from './../controllers/session/actions.js';
 export class Header extends React.Component {
 	render() {
 		return (
-			<nav className="navbar navbar-dark bg-dark">
+			<nav className="navbar navbar-dark">
 				<div className="container justify-content-between">
 					<Link to="/" className="navbar-brand">Home</Link>
 
