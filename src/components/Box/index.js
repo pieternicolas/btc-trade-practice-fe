@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './index.css';
+import './styles/index.css';
 
 const index = (props) => {
   return (
@@ -10,4 +10,4 @@ const index = (props) => {
   )
 }
 
-export default index;
+export default index
