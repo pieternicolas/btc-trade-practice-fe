@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import session from './controllers/session/reducers.js';
 
@@ -9,6 +11,7 @@ const appReducer = combineReducers({
 
 });
 
+
 const rootReducer = (state, action) => {
 	if (action.type === 'SESSION_LOGOUT') {
 		state = undefined;
@@ -16,5 +19,4 @@ const rootReducer = (state, action) => {
 	return appReducer(state, action);
 };
 
-
-export default rootReducer;
+export default createStore(rootReducer, applyMiddleware(thunk));

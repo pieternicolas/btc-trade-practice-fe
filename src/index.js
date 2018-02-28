@@ -12,10 +12,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 // React redux related imports
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import reducers from './store.js';
-let store = createStore(reducers, applyMiddleware(thunk));
+import store from './store.js';
 
 window.jQuery = window.$ = require("jquery");
 window.Popper = require('popper.js');
