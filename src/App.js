@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router';
 
+import 'animate.css/animate.min.css';
 import './assets/scss/index.css';
 
 import Header from './components/Header.js';
