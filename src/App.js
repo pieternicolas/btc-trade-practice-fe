@@ -6,7 +6,7 @@ import './assets/scss/index.css';
 
 import Header from './components/Header.js';
 import Login from './views/Login';
-import Home from './views/Home';
+import Home from './containers/Home';
 
 
 // export default class App extends React.Component {

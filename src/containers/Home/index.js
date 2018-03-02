@@ -5,7 +5,7 @@ import PrivateOnlyRoute from  './../../components/Auth/PrivateOnlyRoute.js';
 import PublicOnlyRoute from  './../../components/Auth/PublicOnlyRoute.js';
 import PublicHeader from './components/PublicHeader.js';
 import PublicFooter from './components/PublicFooter.js';
-import Login from './../Login';
+import Login from './../../views/Login';
 
 import './styles/index.css';
 
