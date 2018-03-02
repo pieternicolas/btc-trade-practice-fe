@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 
 import PrivateOnlyRoute from  './../../components/Auth/PrivateOnlyRoute.js';
+import PublicOnlyRoute from  './../../components/Auth/PublicOnlyRoute.js';
 import PublicHeader from './components/PublicHeader.js';
 import PublicFooter from './components/PublicFooter.js';
 import Login from './../Login';
@@ -20,10 +21,13 @@ const index = (props) => {
 				</p>
 				<p className="lead">
 					<Link to="/dashboard" className="btn btn-lg btn-secondary">Start Now</Link>
+					<Link to="/login" className="btn btn-lg">LOGIN</Link>
 				</p>
 			</section>
 
-			<Login></Login>
+
+
+			<Route path="/login" component={PublicOnlyRoute(Login)}></Route>
 
 			<Route path="/dashboard" component={PrivateOnlyRoute(PublicFooter)}></Route>
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Form from './../../components/Form';
+
 import { signin } from './../../controllers/session/actions.js';
 
 
@@ -17,8 +19,26 @@ export class Login extends React.Component {
 
 	handleFormInput(e) {
 		this.setState({
-			credentials: Object.assign({}, this.state.credentials, {[e.target.id]: e.target.value})
+			credentials: { ...this.state.credentials, [e.target.name]: e.target.value }
 		});
+	}
+
+	// render() {
+	// 	return (
+	// 		<div className="container">
+	// 			Login
+	// 			<pre>{JSON.stringify(this.props.session)}</pre>
+
+	// 			<input type="text" name="id" value={this.state.credentials.id} onChange={(e) => this.handleFormInput(e)}/>
+
+	// 			<button onClick={() => this.props.onLoginClick(this.state.credentials)}>test</button>
+	// 		</div>
+	// 	);
+	// }
+
+	signin() {
+		console.log('login success')
+		this.props.onLoginSubmit(this.state.credentials);
 	}
 
 	render() {
@@ -27,9 +47,14 @@ export class Login extends React.Component {
 				Login
 				<pre>{JSON.stringify(this.props.session)}</pre>
 
-				<input type="text" id="id" value={this.state.credentials.id} onChange={(e) => this.handleFormInput(e)}/>
+				<Form fields={this.state.credentials} onFormInput={(e) => this.handleFormInput(e)} onFormSubmit={(e) => this.signin(e)}>
 
-				<button onClick={() => this.props.onLoginClick(this.state.credentials)}>test</button>
+					<input type="text" name="id" validate={['required', 'email']} label="fds" className="form-control"/>
+					<input type="password" name="password" validate={['required']}/>
+
+					<button type="submit">Save</button>
+
+				</Form>
 			</div>
 		);
 	}
@@ -43,7 +68,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onLoginClick: (credentials) => {
+		onLoginSubmit: (credentials) => {
 			dispatch(signin(credentials));
 		}
 	};
