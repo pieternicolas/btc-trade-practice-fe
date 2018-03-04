@@ -74,7 +74,7 @@ export default class Form extends React.Component {
 						<label htmlFor={item.props.name}>{item.props.label}</label>
 
 						<input
-							type={item.props.type}
+							type={item.props.type ? item.props.type : 'text'}
 							name={item.props.name}
 							className={item.props.className}
 							value={this.props.fields[item.props.name]}

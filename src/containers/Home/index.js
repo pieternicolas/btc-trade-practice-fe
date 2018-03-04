@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import PublicOnlyRoute from  './../../components/Auth/PublicOnlyRoute.js';
 import PublicHeader from './../../components/PublicHeader.js';
@@ -14,9 +14,10 @@ const index = (props) => {
 		<div className="cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
 			<PublicHeader></PublicHeader>
 
-			<Route path="/" exact component={SplashPage}></Route>
-
-			<Route path="/login" component={PublicOnlyRoute(Login)}></Route>
+				<Switch>
+					<Route path="/login" component={PublicOnlyRoute(Login)}></Route>
+					<Route path="/" component={SplashPage}></Route>
+				</Switch>
 			
 			<PublicFooter></PublicFooter>
 		</div>

@@ -2,18 +2,15 @@ import * as api from './api.js';
 
 
 export const signin = (credentials) => {
-	console.log(credentials)
 	return (dispatch) => {
-		// return axios({
-		// 	method: 'get',
-		// 	url: 'http://www.colr.org/json/color/random'
-		// })
-		// .then(response => {
-		// 	dispatch(beginSession(Object.assign({}, response.data, credentials)));
-		// });
-		api.signin(credentials)
+		const modifiedCredentials = {
+			id: credentials.email,
+			password: credentials.password
+		};
+
+		api.signin(modifiedCredentials)
 		.then(response => {
-			dispatch(beginSession(Object.assign({}, response.data, credentials)));
+			dispatch(beginSession(Object.assign({}, response.data, credentials, modifiedCredentials)));
 		});
 	};
 };

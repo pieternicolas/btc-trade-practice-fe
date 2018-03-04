@@ -8,13 +8,13 @@ import { signout } from './../controllers/session/actions.js';
 export class Header extends React.Component {
 	render() {
 		return (
-			<nav className="navbar navbar-dark">
-				<div className="container justify-content-between">
+			<nav className="navbar navbar-light bg-light">
+				<div className="container-fluid justify-content-between">
 					<Link to="/" className="navbar-brand">Home</Link>
 
 					<div className="dropdown">
 						<button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Account
+							{this.props.session.id}
 						</button>
 						<div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
 							<button className="dropdown-item" onClick={() => {this.props.onLogoutClick()}}>Logout</button>
