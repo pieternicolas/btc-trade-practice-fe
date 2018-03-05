@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import PublicOnlyRoute from  './../../components/Auth/PublicOnlyRoute.js';
 import PublicHeader from './../../components/PublicHeader.js';
 import PublicFooter from './../../components/PublicFooter.js';
-import Login from './../../views/Login';
+import Login from './../../containers/Login';
 import SplashPage from './components/SplashPage.js';
 
 import './styles/index.css';
