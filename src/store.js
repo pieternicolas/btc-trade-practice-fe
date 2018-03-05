@@ -3,11 +3,13 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 import session from './controllers/session/reducers.js';
+import styling from './controllers/styling/reducers.js';
 
 
 const appReducer = combineReducers({
 
-	session
+	session,
+	styling
 
 });
 
