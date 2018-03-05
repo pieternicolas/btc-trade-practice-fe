@@ -49,6 +49,7 @@ export default class Form extends React.Component {
 
 	handleFieldChange(e) {
 		this.setState({ isClean: false });
+		if (this.state.hasBeenSubmitted) this.errorChecking();
 		this.props.onFormInput(e);
 	}
 
@@ -76,9 +77,10 @@ export default class Form extends React.Component {
 						<input
 							type={item.props.type ? item.props.type : 'text'}
 							name={item.props.name}
-							className={item.props.className}
+							className={item.props.className ? item.props.className : 'form-control'}
 							value={this.props.fields[item.props.name]}
 							onChange={(e) => this.handleFieldChange(e)}
+							placeholder={item.props.placeholder}
 						/>
 					</div>
 
@@ -90,19 +92,24 @@ export default class Form extends React.Component {
 						key={index}
 						type={item.props.type}
 						name={item.props.name}
+						className={item.props.className ? item.props.className : 'form-control'}
 						value={this.props.fields[item.props.name]}
 						onChange={(e) => this.handleFieldChange(e)}
+						placeholder={item.props.placeholder}
 					/>
 
 				);
 			}
-		}).map(item => {
-			// console.log(item);
-			return item;
 		});
 
 		const submitButton = this.props.children.find(item => {
 			return item.props.type === 'submit';
+		});
+
+		const errors = this.state.errors.map((item, index) => {
+			return (
+				<dd key={index} className="text-danger">{item.message}</dd>
+			);
 		});
 
 		return (
@@ -111,6 +118,10 @@ export default class Form extends React.Component {
 				{fields}
 
 				{submitButton}
+
+				<dl className="mt-2">
+					{errors}
+				</dl>
 
 			</form>
 		);

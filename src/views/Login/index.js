@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Form from './../../components/Form';
+import Box from './../../components/Box';
 
 import { signin } from './../../controllers/session/actions.js';
 
@@ -11,8 +12,8 @@ export class Login extends React.Component {
 		super(props);
 		this.state = {
 			credentials: {
-				email: 'lol@dfd.com',
-				password: 'asdf'
+				email: '',
+				password: ''
 			}
 		};
 	}
@@ -30,18 +31,18 @@ export class Login extends React.Component {
 
 	render() {
 		return (
-			<div className="container">
-				Login
+			<Box className="mx-auto w-75">
+				<h3>Members Login</h3>
 
 				<Form fields={this.state.credentials} onFormInput={(e) => this.handleFormInput(e)} onFormSubmit={(e) => this.signin(e)}>
 
-					<input name="email" validate={['required', 'email']} label="Username" className="form-control"/>
-					<input type="password" name="password" validate={['required']}/>
+					<input name="email" validate={['required', 'email']} placeholder="Email" label="Email"/>
+					<input type="password" name="password" validate={['required']} placeholder="Password" label="Password"/>
 
-					<button type="submit">Login</button>
+					<button className="btn btn-primary" type="submit">Login</button>
 
 				</Form>
-			</div>
+			</Box>
 		);
 	}
 };
