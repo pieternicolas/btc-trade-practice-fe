@@ -1,5 +1,5 @@
 const defaultState = {
-	sidebarActive: true
+	sidebarActive: false
 };
 
 const styling = (state = defaultState, action) => {
