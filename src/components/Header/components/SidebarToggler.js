@@ -22,7 +22,7 @@ export class SidebarToggler extends React.Component {
 	render() {
 		return (
 			<div className={`sidebar-toggler ${this.props.isActive ? '' : 'active'}`}>
-				<button className="btn btn-secondary float-right" onClick={() => this.props.onButtonClick()}>
+				<button className={`btn float-right ${this.props.isActive ? 'btn-outline-dark' : 'btn-dark'}`} onClick={() => this.props.onButtonClick()}>
 					<i className="fas fa-bars"></i>
 				</button>
 			</div>
