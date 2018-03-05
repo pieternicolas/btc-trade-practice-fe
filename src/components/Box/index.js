@@ -4,7 +4,7 @@ import './styles/index.css';
 
 const index = (props) => {
   return (
-    <div className="box-container animated fadeInUp">
+    <div className={`box-container animated fadeInUp ${props.className ? props.className : ''}`}>
 			{props.children}
     </div>
   )
