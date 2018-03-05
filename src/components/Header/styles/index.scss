@@ -1,5 +1,29 @@
 .navbar {
+	padding: 0.5rem 1rem 0.5rem 0rem !important;
+
+	.sidebar-toggler {
+		max-width: 235px;
+		width: 235px;
+		float: left;
+		left: 0;
+		transition: 0.5s ease;
+		&.active {
+			max-width: 40px;
+		}
+	}
+
 	.navbar-brand {
-		margin-left: 250px;
+		margin-left: 1.5rem;
+	}
+
+	@media (max-width: 767.98px) {
+		padding: 0.5rem 1rem !important;
+		width: 100%;
+		.sidebar-toggler {
+			width: auto;
+			&.active {
+				max-width: auto;
+			}
+		}
 	}
 }

@@ -4,7 +4,7 @@
 	margin-left: -250px;
 	float: left;
 	background: rgba(255, 255, 255, 1);
-
+	transition: 0.5s ease;
 	&.active {
 		margin-left: 0px;
 	}

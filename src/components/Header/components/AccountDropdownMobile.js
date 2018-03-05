@@ -6,7 +6,7 @@ import { signout } from './../../../controllers/session/actions.js';
 
 function mapStateToProps(state) {
 	return {
-		session: state.session
+		// session: state.session
 	};
 };
 
@@ -21,9 +21,9 @@ function mapDispatchToProps (dispatch) {
 export class AccountDropdown extends React.Component {
 	render() {
 		return (
-			<div className="dropdown d-none d-md-block">
+			<div className="dropdown d-sm-block d-xs-block d-md-none">
 				<button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					{this.props.session.id}
+					<i className="fas fa-cog"></i>
 				</button>
 				<div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
 					<button className="dropdown-item" onClick={() => {this.props.onLogoutClick()}}>Logout</button>
