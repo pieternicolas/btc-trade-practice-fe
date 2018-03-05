@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import './assets/js/fontawesome-all.min.js';
 import 'animate.css/animate.min.css';
 import './assets/scss/index.css';
 
