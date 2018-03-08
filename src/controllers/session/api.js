@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const signin = async (data) => {
+export const signin = async (data) => {
 	try {
 		const result = await axios({
 			method: 'get',
@@ -12,6 +12,3 @@ const signin = async (data) => {
 		return new Error(e);
 	};
 };
-
-
-export { signin };

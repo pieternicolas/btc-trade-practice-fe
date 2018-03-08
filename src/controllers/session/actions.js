@@ -10,7 +10,7 @@ export const signin = (credentials) => {
 
 		api.signin(modifiedCredentials)
 		.then(response => {
-			dispatch(beginSession(Object.assign({}, response.data, credentials, modifiedCredentials)));
+			dispatch(beginSession(Object.assign({}, response.data, credentials, modifiedCredentials, { isLoggedIn: true })));
 		});
 	};
 };
@@ -18,7 +18,7 @@ export const signin = (credentials) => {
 export const beginSession = (userData) => {
 	return {
 		type: 'SESSION_LOGIN',
-		data: Object.assign({}, userData, { isLoggedIn: true })
+		data: userData
 	};
 };
 
