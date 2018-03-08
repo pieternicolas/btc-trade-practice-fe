@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles/index.css';
 
-const index = (props) => {
+const Box = (props) => {
   return (
     <div className={`box-container animated fadeInUp ${props.className ? props.className : ''}`}>
 			{props.children}
@@ -10,4 +10,4 @@ const index = (props) => {
   )
 }
 
-export default index
+export default Box
