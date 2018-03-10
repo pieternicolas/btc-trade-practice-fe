@@ -5,7 +5,14 @@ export const getWallet = (identifier) => {
 	return (dispatch) => {
 		api.getWallet(identifier)
 		.then(response => {
-			dispatch(updateWallet(response.data));
+			const dataModifier = response.data.map(item => {
+				return {
+					symbol: item.symbol,
+					name: item.companyName,
+					value: item.iexRealtimePrice
+				};
+			});
+			dispatch(updateWallet(dataModifier));
 		});
 	};
 };
