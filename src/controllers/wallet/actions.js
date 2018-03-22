@@ -3,16 +3,19 @@ import * as api from './api.js';
 
 export const getWallet = (identifier) => {
 	return (dispatch) => {
-		api.getWallet(identifier)
-		.then(response => {
-			const dataModifier = response.data.map(item => {
-				return {
-					symbol: item.symbol,
-					name: item.companyName,
-					value: item.iexRealtimePrice
-				};
+		return new Promise ((resolve, reject) => {
+			api.getWallet(identifier)
+			.then(response => {
+				const dataModifier = response.data.map(item => {
+					return {
+						symbol: item.symbol,
+						name: item.companyName,
+						value: item.iexRealtimePrice
+					};
+				});
+				dispatch(updateWallet(dataModifier));
+				resolve();
 			});
-			dispatch(updateWallet(dataModifier));
 		});
 	};
 };
