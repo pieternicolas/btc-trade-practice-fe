@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import EntryCashBalance from './components/EntryCashBalance.js';
 import EntryBtcBalance from './components/EntryBtcBalance.js';
+import CoinListingTable from './components/CoinListingTable.js';
 
 import { getWallet } from './../../controllers/wallet/actions.js';
 
@@ -54,6 +55,12 @@ export class Entry extends React.Component {
 
 					<div className="col-sm-6">
 						<EntryCashBalance wallet={this.props.wallet[2]}></EntryCashBalance>
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-sm-12">
+						<CoinListingTable coins={this.props.wallet}></CoinListingTable>
 					</div>
 				</div>
 			</div>
