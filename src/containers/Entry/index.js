@@ -46,13 +46,15 @@ export class Entry extends React.Component {
 		};
 
 		return (
-			<div className="row">
-				<div className="col-sm-6">
-					<EntryBtcBalance wallet={this.props.wallet[1]}></EntryBtcBalance>
-				</div>
+			<div className="container-fluid">
+				<div className="row">
+					<div className="col-sm-6">
+						<EntryBtcBalance wallet={this.props.wallet[1]}></EntryBtcBalance>
+					</div>
 
-				<div className="col-sm-6">
-					<EntryCashBalance wallet={this.props.wallet[2]}></EntryCashBalance>
+					<div className="col-sm-6">
+						<EntryCashBalance wallet={this.props.wallet[2]}></EntryCashBalance>
+					</div>
 				</div>
 			</div>
 		);
