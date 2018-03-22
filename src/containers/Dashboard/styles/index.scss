@@ -1,0 +1,9 @@
+.sidebar-active {
+	@media (min-width: 767.98px) {
+		padding-right: 0px !important;
+	}
+	@media (max-width: 767.98px) {
+		z-index: 999;
+		position: fixed;
+	}
+}
