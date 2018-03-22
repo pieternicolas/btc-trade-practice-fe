@@ -6,6 +6,8 @@ import EntryBtcBalance from './components/EntryBtcBalance.js';
 
 import { getWallet } from './../../controllers/wallet/actions.js';
 
+import './styles/index.css';
+
 
 function mapStateToProps(state) {
 	return {
@@ -34,7 +36,6 @@ export class Entry extends React.Component {
 		.then(() => {
 			this.setState({ isDone: true });
 		});
-
 	}
 
 	render() {
