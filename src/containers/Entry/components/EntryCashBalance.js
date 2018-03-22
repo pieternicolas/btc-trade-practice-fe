@@ -8,7 +8,7 @@ const EntryCashBalance = (props) => {
 		<Box className="bg-info">
 			<div className="row">
 				<div className="col-3">
-					<i className="fab fa-btc"></i>
+					<i className="fas fa-dollar-sign"></i>
 				</div>
 
 				<div className="col-9">
