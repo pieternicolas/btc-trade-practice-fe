@@ -1,6 +1,6 @@
 const defaultState = {
 	sidebarActive: false,
-	loaderActive: true
+	loaderActive: false
 };
 
 const styling = (state = defaultState, action) => {

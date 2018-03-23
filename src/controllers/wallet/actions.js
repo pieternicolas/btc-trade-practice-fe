@@ -1,12 +1,15 @@
 import * as api from './api.js';
+import { toggleLoader } from './../styling/actions.js';
 
 
 export const getWallet = (identifier) => {
 	return (dispatch) => {
+		dispatch(toggleLoader());
+
 		return new Promise ((resolve, reject) => {
 			api.getWallet(identifier)
-			.then(response => {
-				const dataModifier = response.data.map(item => {
+			.then(res => {
+				const dataModifier = res.data.map(item => {
 					return {
 						symbol: item.symbol,
 						name: item.companyName,
@@ -14,7 +17,12 @@ export const getWallet = (identifier) => {
 					};
 				});
 				dispatch(updateWallet(dataModifier));
+				dispatch(toggleLoader());
 				resolve();
+			})
+			.catch(err => {
+				dispatch(toggleLoader());
+				reject(err);
 			});
 		});
 	};
