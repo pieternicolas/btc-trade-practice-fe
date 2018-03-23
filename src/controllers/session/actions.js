@@ -1,11 +1,8 @@
 import * as api from './api.js';
-import { toggleLoader } from './../styling/actions.js';
 
 
 export const signin = (credentials) => {
 	return (dispatch) => {
-		dispatch(toggleLoader());
-
 		const modifiedCredentials = {
 			id: credentials.email,
 			password: credentials.password
@@ -14,7 +11,6 @@ export const signin = (credentials) => {
 		api.signin(modifiedCredentials)
 		.then(response => {
 			dispatch(beginSession(Object.assign({}, response.data, credentials, modifiedCredentials, { isLoggedIn: true })));
-			dispatch(toggleLoader());
 		});
 	};
 };

@@ -4,7 +4,7 @@ import { toggleLoader } from './../styling/actions.js';
 
 export const getWallet = (identifier) => {
 	return (dispatch) => {
-		dispatch(toggleLoader());
+		dispatch(toggleLoader(true));
 
 		return new Promise ((resolve, reject) => {
 			api.getWallet(identifier)
@@ -17,11 +17,11 @@ export const getWallet = (identifier) => {
 					};
 				});
 				dispatch(updateWallet(dataModifier));
-				dispatch(toggleLoader());
+				dispatch(toggleLoader(false));
 				resolve();
 			})
 			.catch(err => {
-				dispatch(toggleLoader());
+				dispatch(toggleLoader(false));
 				reject(err);
 			});
 		});
